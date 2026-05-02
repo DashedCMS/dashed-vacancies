@@ -1,8 +1,8 @@
 <div id="apply" class="rounded-2xl bg-gray-50 p-8">
     <h2 class="text-2xl font-bold mb-6">{{ Translation::get('vacancy-apply-title', 'vacancies', 'Solliciteer direct') }}</h2>
 
-    @if($vacancy->direct_apply && $vacancy->form)
-        <livewire:dashed-forms.form :form="$vacancy->form" />
+    @if($vacancy->direct_apply && $vacancy->form_id)
+        <livewire:dashed-forms.form :formId="$vacancy->form_id" :wire:key="'vacancy-form-' . $vacancy->id" />
     @elseif($vacancy->application_url)
         <a href="{{ $vacancy->application_url }}" class="button button--primary" target="_blank" rel="noopener">
             {{ Translation::get('vacancy-apply-cta', 'vacancies', 'Solliciteer nu') }}

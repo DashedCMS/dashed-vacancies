@@ -2,6 +2,12 @@
 
 All notable changes to `dashed-vacancies` will be documented in this file.
 
+## v4.1.1 - 2026-05-02
+
+### Fixed
+- The application form on the vacancy detail page now actually renders its fields. The `<livewire:dashed-forms.form>` component was being passed `:form="$vacancy->form"`, but the component's `mount()` expects `formId` (with route-model-binding). Switched to `:formId="$vacancy->form_id"` and added a stable `wire:key` so Livewire correctly hydrates the fields collection.
+- `cms()->registerNavigationGroup()` is now guarded with `method_exists` so the package no longer crashes on dashed-core versions before 4.2.0 (where this API was introduced).
+
 ## v4.1.0 - 2026-05-02
 
 ### Changed

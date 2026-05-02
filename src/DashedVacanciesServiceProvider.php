@@ -22,7 +22,9 @@ class DashedVacanciesServiceProvider extends PackageServiceProvider
 
     public function bootingPackage()
     {
-        cms()->registerNavigationGroup('Vacatures', 25);
+        if (method_exists(cms(), 'registerNavigationGroup')) {
+            cms()->registerNavigationGroup('Vacatures', 25);
+        }
 
         Livewire::component('vacancies.show-vacancies', ShowVacancies::class);
 
