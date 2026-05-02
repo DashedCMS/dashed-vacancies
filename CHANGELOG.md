@@ -2,6 +2,14 @@
 
 All notable changes to `dashed-vacancies` will be documented in this file.
 
+## v4.1.2 - 2026-05-02
+
+### Fixed
+- The auto-generated application form created a CV field with `type: file`, but `dashed-forms` does not ship a `form-components/file.blade.php` view, which crashed the frontend with `Unable to locate a class or view for component [form-components.file]`. Replaced the CV field with a plain text input asking for a CV / portfolio / LinkedIn link.
+
+### Note for upgraders
+Existing application forms that were generated with v4.0.0 or v4.1.0 still contain the broken CV `file` field. Either delete that single field or change its type from `file` to `input` via the Forms admin to fix already-attached forms.
+
 ## v4.1.1 - 2026-05-02
 
 ### Fixed

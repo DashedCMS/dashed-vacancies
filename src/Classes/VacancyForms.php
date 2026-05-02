@@ -63,11 +63,13 @@ class VacancyForms
         ]);
 
         $form->fields()->create([
-            'name' => [$locale => 'CV'],
-            'type' => 'file',
+            'name' => [$locale => 'CV / portfolio link'],
+            'type' => 'input',
+            'input_type' => 'text',
             'required' => 0,
             'sort' => 6,
-            'helper_text' => [],
+            'placeholder' => [$locale => 'https://...'],
+            'helper_text' => [$locale => 'Plak hier een link naar je CV, LinkedIn profiel of portfolio'],
         ]);
 
         $form->email_confirmation_form_field_id = $emailField->id;
