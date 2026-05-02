@@ -205,7 +205,7 @@ class VacancyResource extends Resource
                             ->default(true),
                         Select::make('form_id')
                             ->label('Sollicitatieformulier')
-                            ->helperText('Selecteer een formulier of laat leeg om automatisch een formulier te genereren bij opslaan')
+                            ->helperText('Selecteer een bestaand formulier, of gebruik na het opslaan de knop "Sollicitatieformulier aanmaken" bovenin om er automatisch een te genereren')
                             ->searchable()
                             ->nullable()
                             ->preload()
@@ -220,11 +220,6 @@ class VacancyResource extends Resource
                                     ->all();
                             })
                             ->visible(fn (Get $get) => (bool) $get('direct_apply')),
-                        Toggle::make('auto_create_form')
-                            ->label('Automatisch een sollicitatieformulier aanmaken')
-                            ->dehydrated(false)
-                            ->helperText('Maakt een standaard sollicitatieformulier aan en koppelt deze automatisch aan deze vacature')
-                            ->visible(fn (Get $get) => (bool) $get('direct_apply') && ! $get('form_id')),
                         TextInput::make('application_url')
                             ->label('Externe sollicitatie URL')
                             ->url()

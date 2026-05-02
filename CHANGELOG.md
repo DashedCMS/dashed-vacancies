@@ -2,6 +2,12 @@
 
 All notable changes to `dashed-vacancies` will be documented in this file.
 
+## v4.1.0 - 2026-05-02
+
+### Changed
+- Replaced the in-form `auto_create_form` toggle with a proper "Sollicitatieformulier aanmaken" header action button on the vacancy edit page. The button is only visible when no form is yet attached, opens a confirmation modal, and creates + links the form in one click.
+- Removed the `mutateFormDataBeforeCreate` / `mutateFormDataBeforeSave` auto-create hooks — the action is now the single, explicit entry point.
+
 ## v4.0.0 - 2026-05-02
 
 Initial release.
