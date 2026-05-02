@@ -26,3 +26,11 @@ php artisan dashed:create-default-pages
 ## Schema.org overrides
 
 The schema partial lives at `resources/views/components/vacancies/schema.blade.php` after publishing the `dashed-templates` tag. Edit it per site to adjust the JobPosting markup.
+
+## Compatibility
+
+Recommended: `dashed-core` v4.2+ for the full admin experience (navigation group sorting, resource docs, settings docs, role permissions auto-registration).
+
+Older dashed-core versions are also supported — the package guards every "newer" CMS API call (`registerNavigationGroup`, `registerResourceDocs`, `registerSettingsDocs`, `registerRolePermissions`, `registerRouteModel`, `registerSettingsPage`) with `method_exists`, so unsupported features simply degrade silently. The vacancy models, builder blocks, default page seeding, schema.org markup and frontend templates work on every dashed-core version.
+
+The application form upload field requires `dashed-forms` v4.0.23+ (which ships the `form-components/file.blade.php` view). Use a text input for CV/portfolio links if you stay on an older dashed-forms.

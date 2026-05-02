@@ -2,6 +2,14 @@
 
 All notable changes to `dashed-vacancies` will be documented in this file.
 
+## v4.1.3 - 2026-05-02
+
+### Changed
+- Restored `file` type for the auto-generated CV upload field. Requires `dashed-forms` v4.0.23+ which ships the matching `form-components/file.blade.php` view.
+
+### Fixed
+- All "newer" `cms()->register*()` API calls (`registerNavigationGroup`, `registerResourceDocs`, `registerSettingsDocs`, `registerRolePermissions`, `registerRouteModel`, `registerSettingsPage`) are now guarded with `method_exists`. The package no longer crashes on dashed-core versions before these APIs existed; unsupported admin features degrade silently.
+
 ## v4.1.2 - 2026-05-02
 
 ### Fixed
