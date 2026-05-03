@@ -109,7 +109,7 @@ MARKDOWN,
                     'Gebruik categorie in url' => 'Aan zorgt voor URLs als /vacatures/categorie/vacature-titel; uit zorgt voor /vacatures/vacature-titel.',
                 ],
                 tips: [
-                    'Verander de URL opbouw bij voorkeur niet meer als de site live is — bestaande links gaan dan kapot.',
+                    'Verander de URL opbouw bij voorkeur niet meer als de site live is - bestaande links gaan dan kapot.',
                 ],
             );
         }
