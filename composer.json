@@ -19,6 +19,7 @@
     ],
     "require": {
         "php": "^8.3|^8.4",
+        "lara-zeus/spatie-translatable": "^1.0",
         "spatie/laravel-package-tools": "^1.16"
     },
     "require-dev": {

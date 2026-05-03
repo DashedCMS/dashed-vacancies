@@ -2,6 +2,11 @@
 
 All notable changes to `dashed-vacancies` will be documented in this file.
 
+## v4.1.4 - 2026-05-03
+
+### Fixed
+- Added `lara-zeus/spatie-translatable: ^1.0` as a direct composer dependency. This trait was previously inherited via `dashed-core`, but consumer projects on older dashed-core versions don't pull it in transitively, causing `Trait "LaraZeus\SpatieTranslatable\Resources\Concerns\Translatable" not found` on `package:discover`. Declaring it explicitly removes the dependency on dashed-core's transitive deps.
+
 ## v4.1.3 - 2026-05-02
 
 ### Changed
