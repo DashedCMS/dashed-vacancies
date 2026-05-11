@@ -6,8 +6,8 @@ use Filament\Actions\Action;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\EditRecord;
 use Dashed\DashedVacancies\Classes\VacancyForms;
-use Dashed\DashedVacancies\Filament\Resources\VacancyResource;
 use Dashed\DashedCore\Filament\Concerns\HasEditableCMSActions;
+use Dashed\DashedVacancies\Filament\Resources\VacancyResource;
 
 class EditVacancy extends EditRecord
 {

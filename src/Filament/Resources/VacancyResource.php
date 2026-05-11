@@ -15,15 +15,15 @@ use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\DatePicker;
 use Filament\Schemas\Components\Section;
-use Filament\Forms\Components\DateTimePicker;
-use Dashed\DashedVacancies\Models\Vacancy;
-use Filament\Forms\Components\CheckboxList;
+use Filament\Forms\Components\DatePicker;
 use Filament\Tables\Filters\SelectFilter;
+use Dashed\DashedVacancies\Models\Vacancy;
 use Filament\Tables\Filters\TrashedFilter;
-use Filament\Schemas\Components\Utilities\Set;
+use Filament\Forms\Components\CheckboxList;
+use Filament\Forms\Components\DateTimePicker;
 use Filament\Schemas\Components\Utilities\Get;
+use Filament\Schemas\Components\Utilities\Set;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Dashed\DashedCore\Classes\QueryHelpers\SearchQuery;
 use Dashed\DashedCore\Filament\Concerns\HasVisitableTab;
@@ -31,8 +31,8 @@ use Dashed\DashedCore\Filament\Concerns\HasCustomBlocksTab;
 use LaraZeus\SpatieTranslatable\Resources\Concerns\Translatable;
 use Dashed\DashedCore\Classes\Actions\ActionGroups\ToolbarActions;
 use Dashed\DashedVacancies\Filament\Resources\VacancyResource\Pages\EditVacancy;
-use Dashed\DashedVacancies\Filament\Resources\VacancyResource\Pages\ListVacancies;
 use Dashed\DashedVacancies\Filament\Resources\VacancyResource\Pages\CreateVacancy;
+use Dashed\DashedVacancies\Filament\Resources\VacancyResource\Pages\ListVacancies;
 
 class VacancyResource extends Resource
 {

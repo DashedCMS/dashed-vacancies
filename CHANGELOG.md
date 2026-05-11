@@ -2,6 +2,11 @@
 
 All notable changes to `dashed-vacancies` will be documented in this file.
 
+## v4.1.6 - 2026-05-11
+
+### Changed
+- Pint-pass: import-volgorde in `DashedVacanciesServiceProvider`, `VacancyResource` en de Pages-classes conform PHP-CS-Fixer profile. Geen gedragsverandering.
+
 ## v4.1.4 - 2026-05-03
 
 ### Fixed

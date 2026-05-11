@@ -3,8 +3,8 @@
 namespace Dashed\DashedVacancies\Filament\Resources\VacancyCategoryResource\Pages;
 
 use Filament\Resources\Pages\EditRecord;
-use Dashed\DashedVacancies\Filament\Resources\VacancyCategoryResource;
 use Dashed\DashedCore\Filament\Concerns\HasEditableCMSActions;
+use Dashed\DashedVacancies\Filament\Resources\VacancyCategoryResource;
 
 class EditVacancyCategory extends EditRecord
 {
