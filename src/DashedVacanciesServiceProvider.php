@@ -181,6 +181,19 @@ MARKDOWN,
             $cms->registerRouteModel(VacancyCategory::class, 'Vacature categorie', 'Vacature categorieën');
         }
 
+        if (method_exists($cms, 'registerContentQualityModel')) {
+            $cms->registerContentQualityModel(
+                \Dashed\DashedVacancies\Models\Vacancy::class,
+                \Dashed\DashedVacancies\Filament\Resources\VacancyResource::class,
+                'Vacature'
+            );
+            $cms->registerContentQualityModel(
+                \Dashed\DashedVacancies\Models\VacancyCategory::class,
+                \Dashed\DashedVacancies\Filament\Resources\VacancyCategoryResource::class,
+                'Vacaturecategorie'
+            );
+        }
+
         if (method_exists($cms, 'registerSettingsPage')) {
             $cms->registerSettingsPage(VacanciesSettingsPage::class, 'Vacature');
         }
