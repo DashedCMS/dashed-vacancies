@@ -127,6 +127,19 @@ MARKDOWN,
                 'delete_vacancy_category' => 'Vacature categorieën verwijderen',
             ]);
         }
+
+        if (method_exists($cms, 'registerContentQualityModel')) {
+            $cms->registerContentQualityModel(
+                \Dashed\DashedVacancies\Models\Vacancy::class,
+                \Dashed\DashedVacancies\Filament\Resources\VacancyResource::class,
+                'Vacature'
+            );
+            $cms->registerContentQualityModel(
+                \Dashed\DashedVacancies\Models\VacancyCategory::class,
+                \Dashed\DashedVacancies\Filament\Resources\VacancyCategoryResource::class,
+                'Vacaturecategorie'
+            );
+        }
     }
 
     public static function builderBlocks(): void
@@ -179,19 +192,6 @@ MARKDOWN,
         if (method_exists($cms, 'registerRouteModel')) {
             $cms->registerRouteModel(Vacancy::class, 'Vacature', 'Vacatures');
             $cms->registerRouteModel(VacancyCategory::class, 'Vacature categorie', 'Vacature categorieën');
-        }
-
-        if (method_exists($cms, 'registerContentQualityModel')) {
-            $cms->registerContentQualityModel(
-                \Dashed\DashedVacancies\Models\Vacancy::class,
-                \Dashed\DashedVacancies\Filament\Resources\VacancyResource::class,
-                'Vacature'
-            );
-            $cms->registerContentQualityModel(
-                \Dashed\DashedVacancies\Models\VacancyCategory::class,
-                \Dashed\DashedVacancies\Filament\Resources\VacancyCategoryResource::class,
-                'Vacaturecategorie'
-            );
         }
 
         if (method_exists($cms, 'registerSettingsPage')) {
