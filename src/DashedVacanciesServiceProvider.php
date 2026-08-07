@@ -146,29 +146,29 @@ MARKDOWN,
     {
         $defaultBlocks = [
             Block::make('all-vacancies')
-                ->label('Alle vacatures')
+                ->label(__('Alle vacatures'))
                 ->schema([
                     AppServiceProvider::getDefaultBlockFields(),
-                    TextInput::make('title')->label('Titel'),
-                    TextInput::make('subtitle')->label('Subtitel'),
+                    TextInput::make('title')->label(__('Titel')),
+                    TextInput::make('subtitle')->label(__('Subtitel')),
                 ]),
             Block::make('few-vacancies')
-                ->label('Paar vacatures')
+                ->label(__('Paar vacatures'))
                 ->schema([
                     AppServiceProvider::getDefaultBlockFields(),
-                    TextInput::make('title')->label('Titel'),
-                    TextInput::make('subtitle')->label('Subtitel'),
+                    TextInput::make('title')->label(__('Titel')),
+                    TextInput::make('subtitle')->label(__('Subtitel')),
                     TextInput::make('amount')
-                        ->label('Aantal vacatures')
+                        ->label(__('Aantal vacatures'))
                         ->numeric()
                         ->default(3),
                 ]),
             Block::make('single-vacancy')
-                ->label('Een vacature uitlichten')
+                ->label(__('Een vacature uitlichten'))
                 ->schema([
                     AppServiceProvider::getDefaultBlockFields(),
                     Select::make('vacancy_id')
-                        ->label('Vacature')
+                        ->label(__('Vacature'))
                         ->options(fn () => Vacancy::query()->pluck('name', 'id')->all())
                         ->searchable()
                         ->required(),

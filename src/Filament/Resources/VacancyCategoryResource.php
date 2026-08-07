@@ -57,10 +57,10 @@ class VacancyCategoryResource extends Resource
     {
         return $schema
             ->schema([
-                Section::make('Content')->columnSpanFull()
+                Section::make(__('Content'))->columnSpanFull()
                     ->schema(array_merge([
                         TextInput::make('name')
-                            ->label('Naam')
+                            ->label(__('Naam'))
                             ->required()
                             ->maxLength(255)
                             ->lazy()
@@ -70,12 +70,12 @@ class VacancyCategoryResource extends Resource
                                 }
                             }),
                         TextInput::make('slug')
-                            ->label('Slug')
+                            ->label(__('Slug'))
                             ->unique('dashed__vacancy_categories', 'slug', fn ($record) => $record)
                             ->required()
                             ->maxLength(255),
                         Select::make('parent_id')
-                            ->label('Bovenliggende categorie')
+                            ->label(__('Bovenliggende categorie'))
                             ->nullable()
                             ->searchable()
                             ->getOptionLabelFromRecordUsing(fn ($record) => $record->name)
@@ -83,10 +83,10 @@ class VacancyCategoryResource extends Resource
                         cms()->getFilamentBuilderBlock(),
                     ], static::customBlocksTab('vacancyCategoryBlocks')))
                     ->columns(2),
-                Section::make('Globale informatie')->columnSpanFull()
+                Section::make(__('Globale informatie'))->columnSpanFull()
                     ->schema(static::publishTab())
                     ->collapsed(fn ($livewire) => $livewire instanceof EditVacancyCategory),
-                Section::make('Meta data')->columnSpanFull()
+                Section::make(__('Meta data'))->columnSpanFull()
                     ->schema(static::metadataTab()),
             ]);
     }
@@ -96,13 +96,13 @@ class VacancyCategoryResource extends Resource
         return $table
             ->columns(array_merge([
                 TextColumn::make('name')
-                    ->label('Naam')
+                    ->label(__('Naam'))
                     ->sortable()
                     ->searchable(query: SearchQuery::make()),
             ], static::visitableTableColumns()))
             ->filters([
                 SelectFilter::make('parent')
-                    ->label('Bovenliggend item')
+                    ->label(__('Bovenliggend item'))
                     ->multiple()
                     ->preload()
                     ->searchable()

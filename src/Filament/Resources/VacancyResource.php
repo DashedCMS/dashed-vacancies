@@ -72,10 +72,10 @@ class VacancyResource extends Resource
     {
         return $schema
             ->schema([
-                Section::make('Content')->columnSpanFull()
+                Section::make(__('Content'))->columnSpanFull()
                     ->schema(array_merge([
                         TextInput::make('name')
-                            ->label('Naam')
+                            ->label(__('Naam'))
                             ->required()
                             ->maxLength(255)
                             ->reactive()
@@ -86,110 +86,110 @@ class VacancyResource extends Resource
                                 }
                             }),
                         TextInput::make('slug')
-                            ->label('Slug')
+                            ->label(__('Slug'))
                             ->unique('dashed__vacancies', 'slug', fn ($record) => $record)
-                            ->helperText('Laat leeg om automatisch te laten genereren')
+                            ->helperText(__('Laat leeg om automatisch te laten genereren'))
                             ->maxLength(255),
                         Select::make('category_id')
-                            ->label('Categorie')
+                            ->label(__('Categorie'))
                             ->nullable()
                             ->searchable()
                             ->preload()
                             ->getOptionLabelFromRecordUsing(fn ($record) => $record->name)
                             ->relationship('category', 'name'),
                         Textarea::make('excerpt')
-                            ->label('Korte tekst'),
+                            ->label(__('Korte tekst')),
                         Textarea::make('description')
-                            ->label('Volledige omschrijving')
-                            ->helperText('Wordt gebruikt voor de schema.org JobPosting description'),
+                            ->label(__('Volledige omschrijving'))
+                            ->helperText(__('Wordt gebruikt voor de schema.org JobPosting description')),
                         mediaHelper()->field('image', 'Hoofd afbeelding', isImage: true)
-                            ->helperText('Wordt gebruikt op de overzichtspagina'),
+                            ->helperText(__('Wordt gebruikt op de overzichtspagina')),
                         cms()->getFilamentBuilderBlock(),
                     ], static::customBlocksTab('vacancyBlocks')))
                     ->columns(2),
 
-                Section::make('Functie details')->columnSpanFull()
+                Section::make(__('Functie details'))->columnSpanFull()
                     ->schema([
-                        Textarea::make('responsibilities')->label('Verantwoordelijkheden')->rows(4),
-                        Textarea::make('requirements')->label('Vereisten')->rows(4),
-                        Textarea::make('benefits')->label('Wat bieden wij')->rows(4),
-                        Textarea::make('qualifications')->label('Kwalificaties')->rows(3),
-                        TextInput::make('skills')->label('Skills (komma gescheiden)'),
-                        TextInput::make('education_requirements')->label('Opleidingsniveau'),
-                        TextInput::make('experience_requirements')->label('Ervaring'),
-                        TextInput::make('industry')->label('Branche'),
+                        Textarea::make('responsibilities')->label(__('Verantwoordelijkheden'))->rows(4),
+                        Textarea::make('requirements')->label(__('Vereisten'))->rows(4),
+                        Textarea::make('benefits')->label(__('Wat bieden wij'))->rows(4),
+                        Textarea::make('qualifications')->label(__('Kwalificaties'))->rows(3),
+                        TextInput::make('skills')->label(__('Skills (komma gescheiden)')),
+                        TextInput::make('education_requirements')->label(__('Opleidingsniveau')),
+                        TextInput::make('experience_requirements')->label(__('Ervaring')),
+                        TextInput::make('industry')->label(__('Branche')),
                         Select::make('experience_level')
-                            ->label('Ervaringsniveau')
+                            ->label(__('Ervaringsniveau'))
                             ->options([
-                                'entry' => 'Starter',
-                                'mid' => 'Medior',
-                                'senior' => 'Senior',
-                                'lead' => 'Lead',
+                                'entry' => __('Starter'),
+                                'mid' => __('Medior'),
+                                'senior' => __('Senior'),
+                                'lead' => __('Lead'),
                             ])
                             ->nullable(),
                         CheckboxList::make('employment_types')
-                            ->label('Dienstverband')
+                            ->label(__('Dienstverband'))
                             ->options([
-                                'FULL_TIME' => 'Fulltime',
-                                'PART_TIME' => 'Parttime',
-                                'CONTRACTOR' => 'Contractor',
-                                'TEMPORARY' => 'Tijdelijk',
-                                'INTERN' => 'Stage',
-                                'VOLUNTEER' => 'Vrijwilliger',
-                                'PER_DIEM' => 'Oproepbasis',
-                                'OTHER' => 'Anders',
+                                'FULL_TIME' => __('Fulltime'),
+                                'PART_TIME' => __('Parttime'),
+                                'CONTRACTOR' => __('Contractor'),
+                                'TEMPORARY' => __('Tijdelijk'),
+                                'INTERN' => __('Stage'),
+                                'VOLUNTEER' => __('Vrijwilliger'),
+                                'PER_DIEM' => __('Oproepbasis'),
+                                'OTHER' => __('Anders'),
                             ])
                             ->columns(2),
-                        TextInput::make('work_hours_min')->label('Uren per week vanaf')->numeric()->nullable(),
-                        TextInput::make('work_hours_max')->label('Uren per week tot')->numeric()->nullable(),
+                        TextInput::make('work_hours_min')->label(__('Uren per week vanaf'))->numeric()->nullable(),
+                        TextInput::make('work_hours_max')->label(__('Uren per week tot'))->numeric()->nullable(),
                     ])
                     ->columns(2)
                     ->collapsible(),
 
-                Section::make('Locatie')->columnSpanFull()
+                Section::make(__('Locatie'))->columnSpanFull()
                     ->schema([
                         Select::make('job_location_type')
-                            ->label('Werkvorm')
+                            ->label(__('Werkvorm'))
                             ->options([
-                                'on-site' => 'Op locatie',
-                                'hybrid' => 'Hybride',
-                                'TELECOMMUTE' => 'Op afstand (remote)',
+                                'on-site' => __('Op locatie'),
+                                'hybrid' => __('Hybride'),
+                                'TELECOMMUTE' => __('Op afstand (remote)'),
                             ])
                             ->nullable(),
-                        TextInput::make('street_address')->label('Straat + nr')->nullable(),
-                        TextInput::make('postal_code')->label('Postcode')->nullable(),
-                        TextInput::make('city')->label('Plaats')->nullable(),
-                        TextInput::make('region')->label('Regio / provincie')->nullable(),
-                        TextInput::make('country')->label('Land (ISO bv. NL)')->nullable()->maxLength(2),
+                        TextInput::make('street_address')->label(__('Straat + nr'))->nullable(),
+                        TextInput::make('postal_code')->label(__('Postcode'))->nullable(),
+                        TextInput::make('city')->label(__('Plaats'))->nullable(),
+                        TextInput::make('region')->label(__('Regio / provincie'))->nullable(),
+                        TextInput::make('country')->label(__('Land (ISO bv. NL)'))->nullable()->maxLength(2),
                         TextInput::make('applicant_location_requirements')
-                            ->label('Toegestane landen voor remote (komma gescheiden ISO codes)')
-                            ->helperText('Alleen invullen bij volledig remote vacatures, bv. NL,BE,DE')
+                            ->label(__('Toegestane landen voor remote (komma gescheiden ISO codes)'))
+                            ->helperText(__('Alleen invullen bij volledig remote vacatures, bv. NL,BE,DE'))
                             ->nullable(),
                     ])
                     ->columns(2)
                     ->collapsible(),
 
-                Section::make('Salaris')->columnSpanFull()
+                Section::make(__('Salaris'))->columnSpanFull()
                     ->schema([
-                        TextInput::make('salary_min')->label('Salaris vanaf')->numeric()->nullable(),
-                        TextInput::make('salary_max')->label('Salaris tot')->numeric()->nullable(),
+                        TextInput::make('salary_min')->label(__('Salaris vanaf'))->numeric()->nullable(),
+                        TextInput::make('salary_max')->label(__('Salaris tot'))->numeric()->nullable(),
                         Select::make('salary_currency')
-                            ->label('Valuta')
+                            ->label(__('Valuta'))
                             ->options([
-                                'EUR' => 'EUR',
-                                'USD' => 'USD',
-                                'GBP' => 'GBP',
+                                'EUR' => __('EUR'),
+                                'USD' => __('USD'),
+                                'GBP' => __('GBP'),
                             ])
                             ->default('EUR')
                             ->nullable(),
                         Select::make('salary_unit_text')
-                            ->label('Per')
+                            ->label(__('Per'))
                             ->options([
-                                'HOUR' => 'Per uur',
-                                'DAY' => 'Per dag',
-                                'WEEK' => 'Per week',
-                                'MONTH' => 'Per maand',
-                                'YEAR' => 'Per jaar',
+                                'HOUR' => __('Per uur'),
+                                'DAY' => __('Per dag'),
+                                'WEEK' => __('Per week'),
+                                'MONTH' => __('Per maand'),
+                                'YEAR' => __('Per jaar'),
                             ])
                             ->nullable(),
                     ])
@@ -197,15 +197,15 @@ class VacancyResource extends Resource
                     ->collapsible()
                     ->collapsed(),
 
-                Section::make('Solliciteren')->columnSpanFull()
+                Section::make(__('Solliciteren'))->columnSpanFull()
                     ->schema([
                         Toggle::make('direct_apply')
-                            ->label('Sollicitatie via deze pagina')
+                            ->label(__('Sollicitatie via deze pagina'))
                             ->reactive()
                             ->default(true),
                         Select::make('form_id')
-                            ->label('Sollicitatieformulier')
-                            ->helperText('Selecteer een bestaand formulier, of gebruik na het opslaan de knop "Sollicitatieformulier aanmaken" bovenin om er automatisch een te genereren')
+                            ->label(__('Sollicitatieformulier'))
+                            ->helperText(__('Selecteer een bestaand formulier, of gebruik na het opslaan de knop "Sollicitatieformulier aanmaken" bovenin om er automatisch een te genereren'))
                             ->searchable()
                             ->nullable()
                             ->preload()
@@ -221,36 +221,36 @@ class VacancyResource extends Resource
                             })
                             ->visible(fn (Get $get) => (bool) $get('direct_apply')),
                         TextInput::make('application_url')
-                            ->label('Externe sollicitatie URL')
+                            ->label(__('Externe sollicitatie URL'))
                             ->url()
                             ->nullable()
                             ->visible(fn (Get $get) => ! $get('direct_apply')),
                         TextInput::make('application_email')
-                            ->label('Sollicitatie e-mailadres')
+                            ->label(__('Sollicitatie e-mailadres'))
                             ->email()
                             ->nullable()
                             ->visible(fn (Get $get) => ! $get('direct_apply')),
-                        DateTimePicker::make('application_deadline')->label('Sluitingsdatum sollicitaties')->nullable(),
-                        DatePicker::make('valid_through')->label('Geldig tot (schema.org)')->nullable(),
-                        TextInput::make('identifier_value')->label('Vacature referentie / ID')->nullable(),
+                        DateTimePicker::make('application_deadline')->label(__('Sluitingsdatum sollicitaties'))->nullable(),
+                        DatePicker::make('valid_through')->label(__('Geldig tot (schema.org)'))->nullable(),
+                        TextInput::make('identifier_value')->label(__('Vacature referentie / ID'))->nullable(),
                     ])
                     ->columns(2)
                     ->collapsible(),
 
-                Section::make('Werkgever (optioneel)')->columnSpanFull()
+                Section::make(__('Werkgever (optioneel)'))->columnSpanFull()
                     ->schema([
-                        TextInput::make('hiring_organization_name')->label('Naam')->nullable(),
-                        TextInput::make('hiring_organization_url')->label('Website')->url()->nullable(),
-                        TextInput::make('hiring_organization_logo')->label('Logo URL')->nullable(),
+                        TextInput::make('hiring_organization_name')->label(__('Naam'))->nullable(),
+                        TextInput::make('hiring_organization_url')->label(__('Website'))->url()->nullable(),
+                        TextInput::make('hiring_organization_logo')->label(__('Logo URL'))->nullable(),
                     ])
                     ->columns(3)
                     ->collapsible()
                     ->collapsed(),
 
-                Section::make('Globale informatie')->columnSpanFull()
+                Section::make(__('Globale informatie'))->columnSpanFull()
                     ->schema(static::publishTab())
                     ->collapsed(fn ($livewire) => $livewire instanceof EditVacancy),
-                Section::make('Meta data')->columnSpanFull()
+                Section::make(__('Meta data'))->columnSpanFull()
                     ->schema(static::metadataTab()),
             ]);
     }
@@ -260,23 +260,23 @@ class VacancyResource extends Resource
         return $table
             ->columns(array_merge([
                 TextColumn::make('name')
-                    ->label('Naam')
+                    ->label(__('Naam'))
                     ->sortable()
                     ->searchable(query: SearchQuery::make()),
                 TextColumn::make('category.name')
-                    ->label('Categorie')
+                    ->label(__('Categorie'))
                     ->sortable(),
                 TextColumn::make('city')
-                    ->label('Plaats')
+                    ->label(__('Plaats'))
                     ->toggleable(),
                 TextColumn::make('employment_types_label')
-                    ->label('Dienstverband')
+                    ->label(__('Dienstverband'))
                     ->toggleable(),
             ], static::visitableTableColumns()))
             ->filters([
                 TrashedFilter::make(),
                 SelectFilter::make('category')
-                    ->label('Categorie')
+                    ->label(__('Categorie'))
                     ->searchable()
                     ->multiple()
                     ->preload()

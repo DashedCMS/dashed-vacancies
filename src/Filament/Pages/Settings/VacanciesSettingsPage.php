@@ -47,17 +47,17 @@ class VacanciesSettingsPage extends Page implements HasSchemas
         foreach (Sites::getSites() as $site) {
             $newSchema = [
                 Select::make("vacancy_overview_page_id_{$site['id']}")
-                    ->label('Vacature overzicht pagina')
+                    ->label(__('Vacature overzicht pagina'))
                     ->searchable()
                     ->preload()
                     ->options(PageModel::thisSite($site['id'])->pluck('name', 'id')),
                 Select::make("vacancy_category_overview_page_id_{$site['id']}")
-                    ->label('Vacature categorie overzicht pagina')
+                    ->label(__('Vacature categorie overzicht pagina'))
                     ->searchable()
                     ->preload()
                     ->options(PageModel::thisSite($site['id'])->pluck('name', 'id')),
                 Toggle::make("vacancy_use_category_in_url_{$site['id']}")
-                    ->label('Gebruik categorie in url'),
+                    ->label(__('Gebruik categorie in url')),
             ];
 
             $tabs[] = Tab::make($site['id'])
@@ -80,7 +80,7 @@ class VacanciesSettingsPage extends Page implements HasSchemas
         }
 
         Notification::make()
-            ->title('De vacature instellingen zijn opgeslagen')
+            ->title(__('De vacature instellingen zijn opgeslagen'))
             ->success()
             ->send();
 
