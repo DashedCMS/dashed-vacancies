@@ -25,7 +25,7 @@ class DashedVacanciesServiceProvider extends PackageServiceProvider
         $cms = cms();
 
         if (method_exists($cms, 'registerNavigationGroup')) {
-            $cms->registerNavigationGroup('Vacatures', 25);
+            $cms->registerNavigationGroup('Vacatures', 45);
         }
 
         Livewire::component('vacancies.show-vacancies', ShowVacancies::class);
